@@ -1,6 +1,6 @@
 # MODE-APIS-Y-STORES
-#Comandos Base git hub para crear y subir
-  GIT DE CERO
+#Comandos Base git hub para crear y subir \n
+  GIT DE CERO \n
   git init
   git remote add origin https://github.com/NigelJacoby/MODE-APIS-Y-STORES.git
   git add .
