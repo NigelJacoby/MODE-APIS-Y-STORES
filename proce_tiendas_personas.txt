@@ -1,4 +1,0 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `c_tiendas_personas`()
-BEGIN
-    SELECT idTienda, tieNombre FROM tbltienda WHERE idDocumentoPersona LIKE p_idDocumentoPersona;
-END
