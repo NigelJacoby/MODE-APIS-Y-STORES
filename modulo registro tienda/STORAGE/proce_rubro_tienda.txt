@@ -1,0 +1,4 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `c_rubros_tiendas`()
+SELECT idRubroTienda, rtDescripcion FROM tblrubrotienda$$
+DELIMITER ;
