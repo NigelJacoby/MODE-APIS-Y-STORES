@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `actualizar_visita`(IN `id_visita` INT, IN `vis_fecha` DATE, IN `vis_hora` VARCHAR(20), IN `vis_comentario` VARCHAR(100))
+BEGIN
+	UPDATE tblvisitas
+	SET visFecha = vis_fecha, visHora = vis_hora, visComentario = vis_comentario
+	WHERE idVisita = id_visita;
+END

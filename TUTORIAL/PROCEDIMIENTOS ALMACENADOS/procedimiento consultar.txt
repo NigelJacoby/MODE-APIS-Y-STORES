@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultar_albergues`()
+BEGIN
+	SELECT tblalbergue.idAlbergue,tblalbergue.albNombre,
+    tblalbergue.albCantAnimales,tblalbergue.albCell,tblalbergue.albImgLogo,
+    (SELECT tblubicacion.ubiDescripcion FROM tblubicacion WHERE IdUbicacion 
+    = tblalbergue.IdUbicacion)AS ubicacionDesc 
+    FROM tblalbergue;
+END

@@ -1,0 +1,2 @@
+http://173.247.237.92/htaccess/"""API.PHP"""
+http://173.247.237.92/htaccess/c_rubros_tiendas.php

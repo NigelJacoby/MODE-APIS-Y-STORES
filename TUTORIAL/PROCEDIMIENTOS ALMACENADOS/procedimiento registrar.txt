@@ -1,0 +1,22 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `registrar_intercambio_producto`(IN `id_persona` INT, IN `id_modo_pago` INT, IN `cant_pro` INT, IN `precio_total` DECIMAL(9,2), IN `id_producto` INT, IN `cant_collares_restantes` INT)
+BEGIN
+	DECLARE fecha_ven DATE;
+	DECLARE idVen INT;
+    SET fecha_ven := (SELECT DATE_ADD(CURDATE(),INTERVAL 7 DAY));
+	INSERT INTO tblventa (venFecha,venEstado,idPersona,idModoPago) VALUES
+    (fecha_ven,'VALIDO',id_persona,id_modo_pago);
+    SET idVen := (SELECT MAX(IdVenta) FROM tblventa);
+    INSERT INTO tbldetalleventa (detCantidad, detPrecio, IdVenta, IdProducto) VALUES
+    (cant_pro,precio_total,idVen,id_producto);
+    UPDATE tblpersona
+    SET perCantCollares = cant_collares_restantes
+    WHERE IdPersona = id_persona;
+    SELECT tblventa.IdVenta,tblventa.venFecha,tblventa.venEstado,tblproductos.proNombre,tbldetalleventa.detCantidad,tbldetalleventa.detPrecio 
+	FROM tblventa INNER JOIN tbldetalleventa
+	ON tblventa.IdVenta = tbldetalleventa.IdVenta
+	INNER JOIN tblproductos
+	ON tblproductos.IdProducto = tbldetalleventa.IdProducto
+    INNER JOIN tblpersona
+    ON tblpersona.IdPersona = tblventa.IdPersona
+	WHERE tblventa.IdVenta = idVen;
+END
