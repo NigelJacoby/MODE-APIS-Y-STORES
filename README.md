@@ -16,4 +16,7 @@
 ```
 ```
 **Comandos Git para su clonación**
+  - git init
+  - git remote add origin https://github.com/NigelJacoby/MODE-APIS-Y-STORES.git
+  - git pull https://github.com/NigelJacoby/MODE-APIS-Y-STORES.git main
 ```
