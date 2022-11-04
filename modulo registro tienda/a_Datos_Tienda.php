@@ -25,6 +25,6 @@ $json=array();
             echo 'Buen Registrex';
         }
         else{
-            echo 'Algo anda mal, Waiting for hot fix';
+            echo 'BAD ADD STORE, Waiting for hot fix';
         }
     }
