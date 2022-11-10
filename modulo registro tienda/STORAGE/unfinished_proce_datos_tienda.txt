@@ -1,4 +1,0 @@
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `a_Datos_Tienda`(IN `p_tieNombre` VARCHAR(255), IN `p_tieURLWeb` VARCHAR(255), IN `p_tieDescripcion` TEXT, IN `p_tieCorreo` VARCHAR(100), IN `p_tieTelefono` VARCHAR(20), IN `p_tieDireccion` VARCHAR(200), IN `p_tieCiudad` VARCHAR(200), IN `p_tieEstado` VARCHAR(30), IN `p_tieVentasMensuales` INT, IN `p_tieInventarioEstimado` DECIMAL(10, 2), IN `p_idDocumentoPersona` VARCHAR(20), IN `p_idRubroTienda` INT, IN `p_tieLatitud` VARCHAR(255), IN `p_tieLongitud` VARCHAR(255))
-INSERT INTO tbltienda (tieNombre, tieURLWeb, tieDescripcion, tieCorreo, tieTelefono, tieDireccion, tieCiudad, tieEstado, tieVentasMensuales, tieInventarioEstimado, idDocumentoPersona, tieLatitud, tieLongitud) VALUES (p_tieNombre, p_tieURLWeb, p_tieDescripcion, p_tieCorreo, p_tieTelefono, p_tieDireccion, p_tieCiudad, p_tieEstado, p_tieVentasMensuales, p_tieInventarioEstimado, p_idDocumentoPersona, p_tieLatitud, p_tieLongitud)$$
-DELIMITER ;

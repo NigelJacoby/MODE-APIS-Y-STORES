@@ -1,10 +1,10 @@
 <?php
-include 'enchufe.php';
+include '../conexion.php';
 
 $json=array();
     if(isset($_GET["p_idTienda"])){
         $p_idTienda=$_GET['p_idTienda'];
-        $consulta="CALL c_UnaTienda('{$p_idTienda}')";
+        $consulta="CALL sp_c_Informacion_por_Tienda('{$p_idTienda}')";
         $resultado=mysqli_query($conexion,$consulta);
         while($request=mysqli_fetch_array($resultado)){
             $result["tieNombre"]=$request['tieNombre'];
@@ -24,6 +24,6 @@ $json=array();
         mysqli_close($conexion);
         echo json_encode($json);
     }else{
-        die("RIP");
+        die("Bad STORE REQUEST");
     }
 ?>

@@ -1,4 +1,4 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `c_rubros_tiendas`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_rubros_tiendas`()
 SELECT idRubroTienda, rtDescripcion FROM tblrubrotienda$$
 DELIMITER ;

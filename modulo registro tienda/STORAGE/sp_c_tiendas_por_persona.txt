@@ -1,0 +1,6 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_tiendas_por_persona`(IN `p_idDocumentoPersona` VARCHAR(20))
+BEGIN
+    SELECT tbltienda.idTienda, tbltienda.tieNombre FROM tbltienda WHERE idDocumentoPersona LIKE p_idDocumentoPersona;
+END$$
+DELIMITER ;

@@ -1,5 +1,5 @@
 <?php
-include 'enchufe.php';
+include '../conexion.php';
 
 $json=array();
     if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -19,7 +19,7 @@ $json=array();
         $p_tieLatitud=$_POST['p_tieLatitud'];
         $p_tieLongitud=$_POST['p_tieLongitud'];
 
-        $insert="CALL a_Datos_Tienda('{$p_tienombre}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieVentasMensuales}','{$p_tieInventarioEstimado}','{$p_idDocumentoPersona}','{$p_idRubroTienda}','{$p_tieLatitud}','{$p_tieLongitud}')";
+        $insert="CALL sp_a_datos_tienda('{$p_tienombre}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieVentasMensuales}','{$p_tieInventarioEstimado}','{$p_idDocumentoPersona}','{$p_idRubroTienda}','{$p_tieLatitud}','{$p_tieLongitud}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
             echo 'Buen Registrex';
@@ -28,3 +28,4 @@ $json=array();
             echo 'BAD ADD STORE, Waiting for hot fix';
         }
     }
+?>
