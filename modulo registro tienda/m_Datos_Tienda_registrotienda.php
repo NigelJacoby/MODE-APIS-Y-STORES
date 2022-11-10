@@ -20,7 +20,7 @@ $json=array();
         
         $PATH="imagentiendas";
 
-        $insert="CALL m_Datos_Tienda('{$p_idTienda}','{$p_tieNombre}','{$p_tieImagen}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieLatitud}','{$p_tieLongitud}','{$p_idRubroTienda}')";
+        $insert="CALL sp_m_Datos_Tienda_registrotienda('{$p_idTienda}','{$p_tieNombre}','{$p_tieImagen}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieLatitud}','{$p_tieLongitud}','{$p_idRubroTienda}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
             try{
