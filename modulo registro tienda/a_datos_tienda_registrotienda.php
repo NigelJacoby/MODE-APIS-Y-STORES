@@ -19,13 +19,13 @@ $json=array();
         $p_tieLatitud=$_POST['p_tieLatitud'];
         $p_tieLongitud=$_POST['p_tieLongitud'];
 
-        $insert="CALL sp_a_datos_tienda('{$p_tienombre}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieVentasMensuales}','{$p_tieInventarioEstimado}','{$p_idDocumentoPersona}','{$p_idRubroTienda}','{$p_tieLatitud}','{$p_tieLongitud}')";
+        $insert="CALL sp_a_datos_tienda_registrotienda('{$p_tienombre}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieVentasMensuales}','{$p_tieInventarioEstimado}','{$p_idDocumentoPersona}','{$p_idRubroTienda}','{$p_tieLatitud}','{$p_tieLongitud}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
-            echo 'Buen Registrex';
+            echo 'Registro exitoso de datos tienda';
         }
         else{
-            echo 'BAD ADD STORE, Waiting for hot fix';
+            echo 'Fallo en Registrar Datos tienda';
         }
     }
 ?>

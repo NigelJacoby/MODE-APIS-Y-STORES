@@ -3,7 +3,7 @@
 include '../conexion.php';
 
 $json=array();
-    $consulta="CALL sp_c_rubros_tiendas()";
+    $consulta="CALL sp_c_rubros_tiendas_registrotienda()";
     $resultado=mysqli_query($conexion,$consulta);
     while($request=mysqli_fetch_array($resultado)){
         $result["idRubroTienda"]=$request['idRubroTienda'];

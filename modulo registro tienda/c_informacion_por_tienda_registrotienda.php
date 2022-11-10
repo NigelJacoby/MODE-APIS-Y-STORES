@@ -4,7 +4,7 @@ include '../conexion.php';
 $json=array();
     if(isset($_GET["p_idTienda"])){
         $p_idTienda=$_GET['p_idTienda'];
-        $consulta="CALL sp_c_Informacion_por_Tienda('{$p_idTienda}')";
+        $consulta="CALL sp_c_informacion_por_tienda_registrotienda('{$p_idTienda}')";
         $resultado=mysqli_query($conexion,$consulta);
         while($request=mysqli_fetch_array($resultado)){
             $result["tieNombre"]=$request['tieNombre'];
@@ -24,6 +24,6 @@ $json=array();
         mysqli_close($conexion);
         echo json_encode($json);
     }else{
-        die("Bad STORE REQUEST");
+        die("Fallo en consultar informacion de tienda");
     }
 ?>
