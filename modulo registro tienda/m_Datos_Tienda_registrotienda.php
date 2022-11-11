@@ -17,9 +17,12 @@ $json=array();
         $p_tieLatitud=$_POST['p_tieLatitud'];
         $p_tieLongitud=$_POST['p_tieLongitud'];
         $p_idRubroTienda=$_POST['p_idRubroTienda'];
-        $nombreimagen.=$p_tieImagen;
         
-        $PATH="imagentiendas/{}.png";
+        $nombreimagen=rand();
+        $nombreimagen.=$p_idTienda;
+        $nombreimagen.=rand();
+
+        $PATH="imgPerfilTienda/{$nombreimagen}.png";
 
         $insert="CALL sp_m_Datos_Tienda_registrotienda('{$p_idTienda}','{$p_tieNombre}','{$p_tieImagen}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieLatitud}','{$p_tieLongitud}','{$p_idRubroTienda}')";
         $resultado=mysqli_query($conexion,$insert);
