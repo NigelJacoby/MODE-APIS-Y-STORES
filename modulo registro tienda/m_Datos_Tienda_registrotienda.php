@@ -35,7 +35,7 @@ $json=array();
             }
         }
         else{
-            echo 'BAD UPDATER STORE, Waiting for hot fix';
+            echo 'Fail updating store, Waiting for hot fix';
         }
 
     }
