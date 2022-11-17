@@ -20,8 +20,7 @@ $json=array();
         
         $nombreimagen=rand();
         $nombreimagen.=$p_idTienda;
-        $nombreimagen.=rand();
-
+        $nombreimagen.=rand();        
         $PATH="imgPerfilTienda/{$nombreimagen}.png";
 
         $insert="CALL sp_m_Datos_Tienda_registrotienda('{$p_idTienda}','{$p_tieNombre}','{$p_tieImagen}','{$p_tieURLWeb}','{$p_tieDescripcion}','{$p_tieCorreo}','{$p_tieTelefono}','{$p_tieDireccion}','{$p_tieCiudad}','{$p_tieEstado}','{$p_tieLatitud}','{$p_tieLongitud}','{$p_idRubroTienda}')";
@@ -35,7 +34,7 @@ $json=array();
             }
         }
         else{
-            echo 'Fail updating store, Waiting for hot fix';
+            echo 'BAD UPDATER STORE, Waiting for hot fix';
         }
 
     }

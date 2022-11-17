@@ -11,12 +11,13 @@ $json=array();
         $p_proUnidadMedida=$_POST['p_proUnidadMedida'];
         $p_proOrigenProducto=$_POST['p_proOrigenProducto'];
 
-        $insert="CALL a_agregarproductopropio_mitienda('{$p_proImagen}','{$p_proDescripcion}','{$p_proPrecioCostoPromedio}','{$p_proPrecioVentaRecomendado}','{$p_proUnidadMedida}','{$p_proOrigenProducto}')";
+        $insert="CALL sp_a_agregarproductopropio_mitienda('{$p_proImagen}','{$p_proDescripcion}','{$p_proPrecioCostoPromedio}','{$p_proPrecioVentaRecomendado}','{$p_proUnidadMedida}','{$p_proOrigenProducto}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
-            echo 'Producto propio añadido con exito';
+            echo 'Producto propio insertado a la BD con exito';
         }
         else{
             echo 'Falla en agregar producto propio';
         }
     }
+?>

@@ -8,6 +8,7 @@ $json=array();
         $resultado=mysqli_query($conexion,$consulta);
         while($request=mysqli_fetch_array($resultado)){
             $result["tieNombre"]=$request['tieNombre'];
+            $result["tieImagen"]=base64_encode($request['tieImagen']);
             $result["tieURLWeb"]=$request['tieURLWeb'];
             $result["tieDescripcion"]=$request['tieDescripcion'];
             $result["tieCorreo"]=$request['tieCorreo'];
