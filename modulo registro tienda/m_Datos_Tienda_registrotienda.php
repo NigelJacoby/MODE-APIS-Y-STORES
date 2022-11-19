@@ -28,9 +28,9 @@ $json=array();
         if($resultado){
             try{
                 file_put_contents($PATH,base64_decode($p_tieImagen));
-                echo 'Buen Registrex';
+                echo 'Registro echo';
             }catch(Exception $error) {
-                echo 'Examinar bicho: ',  $error->getMessage(), "\n";
+                echo 'Examinar error: ',  $error->getMessage(), "\n";
             }
         }
         else{
