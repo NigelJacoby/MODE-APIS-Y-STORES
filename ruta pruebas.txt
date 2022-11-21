@@ -1,2 +1,2 @@
-http://173.247.237.92/htaccess/"""API.PHP"""
-http://173.247.237.92/htaccess/c_rubros_tiendas.php
+http://129.151.103.228/Encargalo/APIS/TenderoApp/AQUI_VA_EL_NOMBRE_DE_TU_API
+localhost/Encargalo/APIS/TenderoApp/AQUI_VA_EL_NOMBRE_DE_TU_API
