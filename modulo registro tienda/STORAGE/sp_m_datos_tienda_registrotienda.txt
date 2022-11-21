@@ -1,7 +1,13 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_datos_tienda_registrotienda`(IN `p_idTienda` INT(11), IN `p_tieNombre` VARCHAR(255), IN `p_tieImagen` VARCHAR(255), IN `p_tieURLWeb` VARCHAR(255), IN `p_tieDescripcion` TEXT, IN `p_tieCorreo` VARCHAR(100), IN `p_tieTelefono` VARCHAR(20), IN `p_tieDireccion` VARCHAR(200), IN `p_tieCiudad` VARCHAR(200), IN `p_tieEstado` VARCHAR(30), IN `p_tieLatitud` VARCHAR(255), IN `p_tieLongitud` VARCHAR(255), IN `p_idRubroTienda` INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_datos_tienda_registrotienda`(IN `p_idTienda` INT(11), IN `p_tieNombre` VARCHAR(255), IN `p_tieImagen` VARCHAR(255), IN `p_tieURLWeb` VARCHAR(255), IN `p_tieDescripcion` TEXT, IN `p_tieCorreo` VARCHAR(100), IN `p_tieTelefono` VARCHAR(20), IN `p_tieDireccion` VARCHAR(200), IN `p_tieCiudad` VARCHAR(200), IN `p_tieEstado` VARCHAR(30), IN `p_tieLatitud` VARCHAR(255), IN `p_tieLongitud` VARCHAR(255), IN `p_idRubroTienda` INT(11), IN `p_idValidacionImagen` INT(1))
 BEGIN
-UPDATE tbltienda SET tieNombre = p_tieNombre,  tieImagen = p_tieImagen, tieURLWeb = p_tieURLWeb,tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
+
+IF(p_idValidacionImagen=0)
+	THEN
+		UPDATE tbltienda SET tieNombre = p_tieNombre, tieURLWeb = p_tieURLWeb,tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
+ELSE
+    	UPDATE tbltienda SET tieNombre = p_tieNombre,  tieImagen = p_tieImagen, tieURLWeb = p_tieURLWeb,tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
+    END IF;
 
 UPDATE tbldetallerubrotienda SET idRubroTienda =p_idRubroTienda WHERE idTienda = p_idTienda;
 END$$
