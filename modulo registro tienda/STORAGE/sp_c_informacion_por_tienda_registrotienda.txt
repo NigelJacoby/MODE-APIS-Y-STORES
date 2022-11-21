@@ -1,4 +1,0 @@
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_informacion_por_tienda_registrotienda`(IN `p_idTienda` INT(11))
-SELECT tieNombre, tieImagen, tieURLWeb, tieDescripcion, tieCorreo, tieTelefono, tieDireccion, tieCiudad, tieEstado, tieVentasMensuales, tieInventarioEstimado, tieLatitud, tieLongitud FROM tbltienda WHERE idTienda = p_idTienda$$
-DELIMITER ;

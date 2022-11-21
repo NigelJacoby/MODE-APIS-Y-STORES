@@ -1,5 +1,5 @@
 <?php
-include '../conexion.php';
+include 'conexion.php';
 
 $json=array();
     if($_SERVER['REQUEST_METHOD']=='POST'){
