@@ -1,0 +1,10 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_globales_mitienda`(IN `p_proDescripcion` VARCHAR(250))
+BEGIN
+SELECT A.idProducto, A.proImagen, A.proDescripcion, A.proPrecioCostoPromedio, A.proPrecioVentaRecomendado, B.cpNombre
+FROM tblproductos A
+INNER JOIN tblcategoriaproducto B
+	on A.idCategoriaProducto = B.idCategoriaProducto 
+WHERE A.proDescripcion REGEXP p_proDescripcion;
+END$$
+DELIMITER ;
