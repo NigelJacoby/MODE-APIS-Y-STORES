@@ -5,6 +5,6 @@ SELECT A.idProducto, A.proImagen, A.proDescripcion, A.proPrecioCostoPromedio, A.
 FROM tblproductos A
 INNER JOIN tblcategoriaproducto B
 	on A.idCategoriaProducto = B.idCategoriaProducto 
-WHERE A.proDescripcion REGEXP p_proDescripcion;
+WHERE A.proDescripcion REGEXP p_proDescripcion AND A.idCategoriaProducto > 1;
 END$$
 DELIMITER ;

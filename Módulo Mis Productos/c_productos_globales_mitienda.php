@@ -10,17 +10,7 @@ $json=array();
         $resultado=mysqli_query($conexion,$consulta);
         while($request=mysqli_fetch_array($resultado)){
             $result["idProducto"]=$request['idProducto'];
-
-            //Jalando Ruta de Imagen
-            $imgtmp=$request['proImagen'];
-            //Verificando que la ruta tenga contenido
-            if(empty($imgtmp)){
-                $result["proImagen"]=$request['proImagen'];
-            }else{
-                //Convirtiendo la imagen a base 64
-                $result["proImagen"]= base64_encode(file_get_contents("./{$imgtmp}"));
-            }
-            
+            $result["proImagen"]=$request['proImagen'];
             $result["proDescripcion"]=$request['proDescripcion'];
             $result["proPrecioCostoPromedio"]=$request['proPrecioCostoPromedio'];
             $result["proPrecioVentaRecomendado"]=$request['proPrecioVentaRecomendado'];
