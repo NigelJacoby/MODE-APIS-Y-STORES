@@ -1,10 +1,10 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_globales_mitienda`(IN `p_proDescripcion` VARCHAR(250))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_globales_mitienda`(IN `p_proDescripcion` VARCHAR(250), IN `p_idTienda` INT(11))
 BEGIN
 SELECT A.idProducto, A.proImagen, A.proDescripcion, A.proPrecioCostoPromedio, A.proPrecioVentaRecomendado, B.cpNombre
 FROM tblproductos A
 INNER JOIN tblcategoriaproducto B
-	on A.idCategoriaProducto = B.idCategoriaProducto 
-WHERE A.proDescripcion REGEXP p_proDescripcion AND A.idCategoriaProducto > 1;
+	on A.idCategoriaProducto = B.idCategoriaProducto
+WHERE A.proDescripcion REGEXP p_proDescripcion AND A.idCategoriaProducto > 1 AND A.idProducto NOT IN (SELECT idProducto FROM tbllistadoproductotienda WHERE idTienda = p_idTienda AND lpEstado LIKE 'ACTIVO');
 END$$
 DELIMITER ;

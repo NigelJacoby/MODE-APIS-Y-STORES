@@ -7,7 +7,7 @@ INNER JOIN tblproductos B
 	on A.idProducto = B.idProducto 
 INNER JOIN tblcategoriaproducto C 
 	on B.idCategoriaProducto = C.idCategoriaProducto 
-WHERE A.idTienda = p_idTienda AND A.lpEstado LIKE 'ACTIVO'
-GROUP BY C.cpNombre HAVING C.cpNombre LIKE p_categoria;
+WHERE A.idTienda = p_idTienda AND A.lpEstado LIKE 'ACTIVO' AND C.cpNombre REGEXP p_categoria
+ORDER BY A.idListadoProductoTienda DESC;
 END$$
 DELIMITER ;

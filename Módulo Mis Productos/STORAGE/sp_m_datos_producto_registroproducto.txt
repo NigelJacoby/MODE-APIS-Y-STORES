@@ -1,0 +1,13 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_datos_producto_registroproducto`(IN `p_lptStock` FLOAT, IN `p_lptImagen1` VARCHAR(255), IN `p_lptImagen2` VARCHAR(255), IN `p_lptImagen3` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idListadoProductoTienda` INT(11), IN `p_idValidacionImagen` INT(1))
+BEGIN
+
+IF(p_idValidacionImagen=0)
+	THEN
+		UPDATE tbllistadoproductotienda SET lptStock = p_lptStock, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
+ELSE
+    	UPDATE tbllistadoproductotienda SET lptStock = p_lptStock,  lptImagen1 = p_lptImagen1, lptImagen2 = p_lptImagen2, lptImagen3 = p_lptImagen3, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
+    END IF;
+
+END$$
+DELIMITER ;

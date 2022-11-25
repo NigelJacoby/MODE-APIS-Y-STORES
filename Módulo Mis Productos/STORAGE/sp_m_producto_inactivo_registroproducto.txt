@@ -1,0 +1,8 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_producto_inactivo_registroproducto`(IN `p_idListadoProductoTienda` INT(1))
+BEGIN
+
+UPDATE tbllistadoproductotienda SET lpEstado = 'INACTIVO' WHERE idListadoProductoTienda = p_idListadoProductoTienda;
+
+END$$
+DELIMITER ;
