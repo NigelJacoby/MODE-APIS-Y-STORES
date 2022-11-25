@@ -1,7 +1,7 @@
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_a_producto_propio_registroproducto`(IN `p_lptImagen1` VARCHAR(255), IN `p_lptImagen2` VARCHAR(255), IN `p_lptImagen3` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idTienda` INT(11), IN `p_proDescripcion` VARCHAR(255))
 BEGIN 
-INSERT INTO tblproductos (proImagen, proDescripcion, proPrecioCostoPromedio, proPrecioVentaRecomendado, proUnidadMedida, proOrigenProducto, idCategoriaProducto, idProveedor) VALUES (p_lptImagen1, p_proDescripcion, p_lptPrecioCompra, p_lptPrecioVenta, '', 'PROPIO', 1, 1);
+INSERT INTO tblproductos (proImagen, proDescripcion, proPrecioCostoPromedio, proPrecioVentaRecomendado, proUnidadMedida, proOrigenProducto, idCategoriaProducto, idProveedor) VALUES (p_lptImagen1, p_proDescripcion, p_lptPrecioCompra, p_lptPrecioVenta, 'PROPIO', 'PROPIO', 1, 1);
 
 SELECT @idProducto_propio := idProducto FROM tblproductos WHERE proDescripcion LIKE p_proDescripcion AND proPrecioCostoPromedio = p_lptPrecioCompra AND proPrecioVentaRecomendado = p_lptPrecioVenta AND proOrigenProducto LIKE 'PROPIO' AND idCategoriaProducto = 1 AND idProveedor = 1 ORDER by idProducto DESC LIMIT 1;
 
