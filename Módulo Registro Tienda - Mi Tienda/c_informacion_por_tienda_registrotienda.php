@@ -18,7 +18,7 @@ $json=array();
                 //Convirtiendo la imagen a base 64
                 $result["tieImagen"]= base64_encode(file_get_contents("./{$imgtmp}"));
             }
-            
+            $result["tieImagenurl"]= $request['tieImagen'];
             $result["tieURLWeb"]=$request['tieURLWeb'];
             $result["tieDescripcion"]=$request['tieDescripcion'];
             $result["tieCorreo"]=$request['tieCorreo'];

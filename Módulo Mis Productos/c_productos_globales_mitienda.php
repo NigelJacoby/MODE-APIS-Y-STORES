@@ -5,6 +5,10 @@ $json=array();
     if(isset($_GET["p_proDescripcion"])&&isset($_GET["p_idTienda"])){
         $p_proDescripcion=$_GET['p_proDescripcion'];
         $p_idTienda=$_GET['p_idTienda'];
+
+        if(empty($p_proDescripcion)){
+            $p_proDescripcion = "";
+        }
         
         $consulta="CALL sp_c_productos_globales_mitienda('{$p_proDescripcion}', '{$p_idTienda}')";
         

@@ -5,6 +5,11 @@ $json=array();
     if(isset($_GET["p_categoria"])&&isset($_GET["p_idTienda"])){
         $p_categoria=$_GET['p_categoria'];
         $p_idTienda=$_GET['p_idTienda'];
+
+        if(empty($p_categoria)){
+            $p_categoria = "1";
+        }
+
         $consulta="CALL sp_c_productos_por_tienda_mitienda('{$p_categoria}', '{$p_idTienda}')";
         $resultado=mysqli_query($conexion,$consulta);
 

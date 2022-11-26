@@ -1,13 +1,27 @@
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_por_tienda_mitienda`(IN `p_categoria` VARCHAR(50), IN `p_idTienda` INT(11))
 BEGIN
-SELECT A.idListadoProductoTienda, A.lptStock, A.lptStockMinimo, A.lptImagen1, A.lptImagen2, A.lptImagen3, A.lptPrecioCompra, A.lptPrecioVenta, A.idProducto, B.proDescripcion, B.idCategoriaProducto, C.cpNombre
-FROM tbllistadoproductotienda A
-INNER JOIN tblproductos B 
-	on A.idProducto = B.idProducto 
-INNER JOIN tblcategoriaproducto C 
-	on B.idCategoriaProducto = C.idCategoriaProducto 
-WHERE A.idTienda = p_idTienda AND A.lpEstado LIKE 'ACTIVO' AND C.cpNombre REGEXP p_categoria
-ORDER BY A.idListadoProductoTienda DESC;
+
+IF(p_categoria LIKE '1')
+THEN
+	SELECT A.idListadoProductoTienda, A.lptStock, A.lptStockMinimo, A.lptImagen1, A.lptImagen2, A.lptImagen3, A.lptPrecioCompra, A.lptPrecioVenta, A.idProducto, B.proDescripcion, B.idCategoriaProducto, C.cpNombre
+	FROM tblListadoProductoTienda A
+	INNER JOIN tblProductos B
+	on A.idProducto = B.idProducto
+	INNER JOIN tblCategoriaProducto C
+	on B.idCategoriaProducto = C.idCategoriaProducto
+	WHERE A.idTienda = p_idTienda AND A.lpEstado LIKE 'ACTIVO'
+	ORDER BY A.idListadoProductoTienda DESC;
+ELSE
+
+	SELECT A.idListadoProductoTienda, A.lptStock, A.lptStockMinimo, A.lptImagen1, A.lptImagen2, A.lptImagen3, A.lptPrecioCompra, A.lptPrecioVenta, A.idProducto, B.proDescripcion, B.idCategoriaProducto, C.cpNombre
+	FROM tblListadoProductoTienda A
+	INNER JOIN tblProductos B
+	on A.idProducto = B.idProducto
+	INNER JOIN tblCategoriaProducto C
+	on B.idCategoriaProducto = C.idCategoriaProducto
+	WHERE A.idTienda = p_idTienda AND A.lpEstado LIKE 'ACTIVO' AND C.cpNombre REGEXP p_categoria
+	ORDER BY A.idListadoProductoTienda DESC;
+    END IF;
 END$$
 DELIMITER ;
