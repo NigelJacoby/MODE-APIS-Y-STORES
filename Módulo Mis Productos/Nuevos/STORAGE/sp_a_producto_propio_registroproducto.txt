@@ -3,7 +3,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_a_producto_propio_registroproduc
 BEGIN 
 INSERT INTO tblProductos (proImagen, proDescripcion, proPrecioCostoPromedio, proPrecioVentaRecomendado, proUnidadMedida, proOrigenProducto, idCategoriaProducto, idProveedor) VALUES (p_lptImagen1, p_lptDescripcionProductoTienda, p_lptPrecioCompra, p_lptPrecioVenta, 'PROPIO', 'PROPIO', 1, 1);
 
-SELECT @idProducto_propio := idProducto FROM tblProductos WHERE proDescripcion LIKE p_proDescripcion AND proPrecioCostoPromedio = p_lptPrecioCompra AND proPrecioVentaRecomendado = p_lptPrecioVenta AND proOrigenProducto LIKE 'PROPIO' AND idCategoriaProducto = 1 AND idProveedor = 1 ORDER by idProducto DESC LIMIT 1;
+SELECT @idProducto_propio := idProducto FROM tblProductos WHERE proDescripcion LIKE p_lptDescripcionProductoTienda AND proPrecioCostoPromedio = p_lptPrecioCompra AND proPrecioVentaRecomendado = p_lptPrecioVenta AND proOrigenProducto LIKE 'PROPIO' AND idCategoriaProducto = 1 AND idProveedor = 1 ORDER by idProducto DESC LIMIT 1;
 
 INSERT INTO tblListadoProductoTienda (lptDescripcionProductoTienda, lptStock, lptUnidadMedida, lptStockMinimo, lptImagen1, lptImagen2, lptImagen3, lptPrecioCompra, lptPrecioVenta, lpEstado, idProducto, idTienda) VALUES (p_lptDescripcionProductoTienda, p_lptStock, p_lptUnidadMedida, p_lptStockMinimo, p_lptImagen1, p_lptImagen2, p_lptImagen3, p_lptPrecioCompra, p_lptPrecioVenta, 'ACTIVO', @idProducto_propio, p_idTienda);
 END$$
