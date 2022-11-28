@@ -14,7 +14,6 @@ $json=array();
         $p_lptPrecioCompra=$_POST['p_lptPrecioCompra'];
         $p_lptPrecioVenta=$_POST['p_lptPrecioVenta'];
         $p_idTienda=$_POST['p_idTienda'];
-        $p_proDescripcion=$_POST['p_proDescripcion'];
 
         //Verificación de existencia de ruta imagen
         if(empty($p_lptImagen1)){
@@ -53,7 +52,7 @@ $json=array();
         }
 
 
-        $insert="CALL sp_a_producto_propio_registroproducto('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idTienda}','{$p_proDescripcion}')";
+        $insert="CALL sp_a_producto_propio_registroproducto('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idTienda}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
             echo 'Registro exitoso de Producto';
