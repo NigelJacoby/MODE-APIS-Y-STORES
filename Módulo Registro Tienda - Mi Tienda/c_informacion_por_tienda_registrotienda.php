@@ -9,6 +9,7 @@ $json=array();
         while($request=mysqli_fetch_array($resultado)){
             $result["tieNombre"]=$request['tieNombre'];
 
+            /*
             //Jalando Ruta de Imagen
             $imgtmp=$request['tieImagen'];
             //Verificando que la ruta tenga contenido
@@ -18,6 +19,7 @@ $json=array();
                 //Convirtiendo la imagen a base 64
                 $result["tieImagen"]= base64_encode(file_get_contents("./{$imgtmp}"));
             }
+            */
             $result["tieImagenurl"]= $request['tieImagen'];
             $result["tieURLWeb"]=$request['tieURLWeb'];
             $result["tieDescripcion"]=$request['tieDescripcion'];
