@@ -52,7 +52,7 @@ $json=array();
         }
 
         //Actualizar Datos en la BD
-        $update="CALL sp_m_datos_producto_registroproducto_a('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idListadoProductoTienda}','{$p_idValidacionImagen}')";
+        $update="CALL sp_m_datos_producto_registroproducto('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idListadoProductoTienda}','{$p_idValidacionImagen}')";
         $resultado=mysqli_query($conexion,$update);
         if($resultado){
             echo 'Actualizacion Correcta';

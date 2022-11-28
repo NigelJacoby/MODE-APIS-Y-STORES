@@ -10,7 +10,7 @@ $json=array();
             $p_proDescripcion = "";
         }
         
-        $consulta="CALL sp_c_productos_globales_mitienda_a('{$p_proDescripcion}', '{$p_idTienda}')";
+        $consulta="CALL sp_c_productos_globales_mitienda('{$p_proDescripcion}', '{$p_idTienda}')";
         
         $resultado=mysqli_query($conexion,$consulta);
         while($request=mysqli_fetch_array($resultado)){

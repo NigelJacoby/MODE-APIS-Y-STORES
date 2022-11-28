@@ -1,12 +1,12 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_datos_producto_registroproducto_a`(IN `p_lptDescripcionProductoTienda` VARCHAR(255), IN `p_lptStock` FLOAT, IN `p_lptUnidadMedida` VARCHAR(50), IN `p_lptStockMinimo` FLOAT, IN `p_lptImagen1` VARCHAR(255), IN `p_lptImagen2` VARCHAR(255), IN `p_lptImagen3` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idListadoProductoTienda` INT(11), IN `p_idValidacionImagen` INT(1))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_m_datos_producto_registroproducto`(IN `p_lptDescripcionProductoTienda` VARCHAR(255), IN `p_lptStock` FLOAT, IN `p_lptUnidadMedida` VARCHAR(50), IN `p_lptStockMinimo` FLOAT, IN `p_lptImagen1` VARCHAR(255), IN `p_lptImagen2` VARCHAR(255), IN `p_lptImagen3` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idListadoProductoTienda` INT(11), IN `p_idValidacionImagen` INT(1))
 BEGIN
 
 IF(p_idValidacionImagen=0)
 	THEN
-		UPDATE tbllistadoproductotienda SET lptDescripcionProductoTienda = p_lptDescripcionProductoTienda, lptStock = p_lptStock, lptUnidadMedida = p_lptUnidadMedida, lptStockMinimo = p_lptStockMinimo, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
+		UPDATE tblListadoProductoTienda SET lptDescripcionProductoTienda = p_lptDescripcionProductoTienda, lptStock = p_lptStock, lptUnidadMedida = p_lptUnidadMedida, lptStockMinimo = p_lptStockMinimo, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
 ELSE
-    	UPDATE tbllistadoproductotienda SET lptDescripcionProductoTienda = p_lptDescripcionProductoTienda, lptStock = p_lptStock, lptUnidadMedida = p_lptUnidadMedida, lptStockMinimo = p_lptStockMinimo,  lptImagen1 = p_lptImagen1, lptImagen2 = p_lptImagen2, lptImagen3 = p_lptImagen3, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
+    	UPDATE tblListadoProductoTienda SET lptDescripcionProductoTienda = p_lptDescripcionProductoTienda, lptStock = p_lptStock, lptUnidadMedida = p_lptUnidadMedida, lptStockMinimo = p_lptStockMinimo,  lptImagen1 = p_lptImagen1, lptImagen2 = p_lptImagen2, lptImagen3 = p_lptImagen3, lptPrecioCompra = p_lptPrecioCompra, lptPrecioVenta = p_lptPrecioVenta WHERE idListadoProductoTienda = p_idListadoProductoTienda;
     END IF;
 
 END$$

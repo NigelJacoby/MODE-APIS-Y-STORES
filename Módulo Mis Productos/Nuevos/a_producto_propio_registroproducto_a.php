@@ -53,7 +53,7 @@ $json=array();
         }
 
 
-        $insert="CALL sp_a_producto_propio_registroproducto_a('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idTienda}','{$p_proDescripcion}')";
+        $insert="CALL sp_a_producto_propio_registroproducto('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$imagePath1}','{$imagePath2}','{$imagePath3}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idTienda}','{$p_proDescripcion}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
             echo 'Registro exitoso de Producto';

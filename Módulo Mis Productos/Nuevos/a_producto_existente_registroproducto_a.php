@@ -14,7 +14,7 @@ $json=array();
         $p_idProducto=$_POST['p_idProducto'];
         $p_idTienda=$_POST['p_idTienda'];
 
-        $insert="CALL sp_a_producto_existente_registroproducto_a('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$p_lptImagen1}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idProducto}','{$p_idTienda}')";
+        $insert="CALL sp_a_producto_existente_registroproducto('{$p_lptDescripcionProductoTienda}','{$p_lptStock}','{$p_lptUnidadMedida}','{$p_lptStockMinimo}','{$p_lptImagen1}','{$p_lptPrecioCompra}','{$p_lptPrecioVenta}','{$p_idProducto}','{$p_idTienda}')";
         $resultado=mysqli_query($conexion,$insert);
         if($resultado){
             echo 'Registro exitoso de Producto';

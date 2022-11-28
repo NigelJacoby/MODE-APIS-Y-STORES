@@ -1,6 +1,6 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_a_producto_existente_registroproducto_a`(IN `p_lptDescripcionProductoTienda` VARCHAR(255), IN `p_lptStock` FLOAT, IN `p_lptUnidadMedida` VARCHAR(50), IN `p_lptStockMinimo` FLOAT, IN `p_lptImagen1` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idProducto` INT, IN `p_idTienda` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_a_producto_existente_registroproducto`(IN `p_lptDescripcionProductoTienda` VARCHAR(255), IN `p_lptStock` FLOAT, IN `p_lptUnidadMedida` VARCHAR(50), IN `p_lptStockMinimo` FLOAT, IN `p_lptImagen1` VARCHAR(255), IN `p_lptPrecioCompra` DECIMAL(10,2), IN `p_lptPrecioVenta` DECIMAL(10,2), IN `p_idProducto` INT, IN `p_idTienda` INT)
 BEGIN 
-INSERT INTO tbllistadoproductotienda (lptDescripcionProductoTienda, lptStock, lptUnidadMedida, lptStockMinimo, lptImagen1, lptImagen2, lptImagen3, lptPrecioCompra, lptPrecioVenta, lpEstado, idProducto, idTienda) VALUES (p_lptDescripcionProductoTienda, p_lptStock, p_lptUnidadMedida, p_lptStockMinimo, p_lptImagen1, '', '', p_lptPrecioCompra, p_lptPrecioVenta, 'ACTIVO', p_idProducto, p_idTienda);
+INSERT INTO tblListadoProductoTienda (lptDescripcionProductoTienda, lptStock, lptUnidadMedida, lptStockMinimo, lptImagen1, lptImagen2, lptImagen3, lptPrecioCompra, lptPrecioVenta, lpEstado, idProducto, idTienda) VALUES (p_lptDescripcionProductoTienda, p_lptStock, p_lptUnidadMedida, p_lptStockMinimo, p_lptImagen1, '', '', p_lptPrecioCompra, p_lptPrecioVenta, 'ACTIVO', p_idProducto, p_idTienda);
 END$$
 DELIMITER ;

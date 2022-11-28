@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_por_tienda_mitienda_a`(IN `p_categoria` VARCHAR(50), IN `p_idTienda` INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_productos_por_tienda_mitienda`(IN `p_categoria` VARCHAR(50), IN `p_idTienda` INT(11))
 BEGIN
 
 IF(p_categoria LIKE '1')
