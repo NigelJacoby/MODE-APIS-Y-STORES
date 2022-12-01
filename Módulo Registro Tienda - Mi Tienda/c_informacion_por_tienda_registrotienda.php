@@ -20,6 +20,7 @@ $json=array();
             $result["tieInventarioEstimado"]=$request['tieInventarioEstimado'];
             $result["tieLatitud"]=$request['tieLatitud'];
             $result["tieLongitud"]=$request['tieLongitud'];
+            $result["idRubroTienda"]=$request['idRubroTienda'];
             $json['tiendas_info'][]=$result;
         }
         mysqli_close($conexion);
