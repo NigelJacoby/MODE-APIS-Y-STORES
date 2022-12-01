@@ -4,11 +4,11 @@ BEGIN
 
 IF(p_idValidacionImagen=0)
 	THEN
-		UPDATE tbltienda SET tieNombre = p_tieNombre, tieURLWeb = p_tieURLWeb,tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
+		UPDATE tblTienda SET tieNombre = p_tieNombre, tieURLWeb = p_tieURLWeb, tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
 ELSE
-    	UPDATE tbltienda SET tieNombre = p_tieNombre,  tieImagen = p_tieImagen, tieURLWeb = p_tieURLWeb,tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
+    	UPDATE tblTienda SET tieNombre = p_tieNombre,  tieImagen = p_tieImagen, tieURLWeb = p_tieURLWeb, tieDescripcion = p_tieDescripcion, tieCorreo = p_tieCorreo, tieTelefono = p_tieTelefono, tieDireccion = p_tieDireccion, tieCiudad = p_tieCiudad, tieEstado = p_tieEstado, tieLatitud = p_tieLatitud, tieLongitud = p_tieLongitud WHERE idTienda = p_idTienda;
     END IF;
 
-UPDATE tbldetallerubrotienda SET idRubroTienda =p_idRubroTienda WHERE idTienda = p_idTienda;
+UPDATE tblDetalleRubroTienda SET idRubroTienda =p_idRubroTienda WHERE idTienda = p_idTienda;
 END$$
 DELIMITER ;
