@@ -1,4 +1,5 @@
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_c_informacion_por_tienda_registrotienda`(IN `p_idTienda` INT(11))
-SELECT A.tieNombre, A.tieURLWeb, A.tieImagen, A.tieDescripcion, A.tieCorreo, A.tieTelefono, A.tieDireccion, A.tieCiudad, A.tieEstado, A.tieVentasMensuales, A.tieInventarioEstimado, A.tieLatitud, A.tieLongitud, B.idRubroTienda FROM tblTienda INNER JOIN tblDetalleRubroTienda B on A.idTienda = B.idTienda WHERE idTienda = p_idTienda$$
-DELIMITER ;
+SELECT A.tieNombre, A.tieURLWeb, A.tieImagen, A.tieDescripcion, A.tieCorreo, A.tieTelefono, A.tieDireccion, A.tieCiudad, A.tieEstado, A.tieVentasMensuales, A.tieInventarioEstimado, A.tieLatitud, A.tieLongitud, B.idRubroTienda FROM tblTienda A INNER JOIN tblDetalleRubroTienda B on A.idTienda = B.idTienda WHERE A.idTienda = p_idTienda;
+$$
+DELIMITER ;
